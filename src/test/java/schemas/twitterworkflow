@@ -1,0 +1,711 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "created_at",
+    "id",
+    "id_str",
+    "text",
+    "truncated",
+    "entities",
+    "source",
+    "in_reply_to_status_id",
+    "in_reply_to_status_id_str",
+    "in_reply_to_user_id",
+    "in_reply_to_user_id_str",
+    "in_reply_to_screen_name",
+    "user",
+    "geo",
+    "coordinates",
+    "place",
+    "contributors",
+    "is_quote_status",
+    "retweet_count",
+    "favorite_count",
+    "favorited",
+    "retweeted",
+    "lang"
+  ],
+  "properties": {
+    "created_at": {
+      "$id": "#/properties/created_at",
+      "type": "string",
+      "title": "The Created_at Schema",
+      "default": "",
+      "examples": [
+        "Fri Jan 04 23:18:57 +0000 2019"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "id": {
+      "$id": "#/properties/id",
+      "type": "integer",
+      "title": "The Id Schema",
+      "default": 0,
+      "examples": [
+        1081329165666783200
+      ]
+    },
+    "id_str": {
+      "$id": "#/properties/id_str",
+      "type": "string",
+      "title": "The Id_str Schema",
+      "default": "",
+      "examples": [
+        "1081329165666783232"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "text": {
+      "$id": "#/properties/text",
+      "type": "string",
+      "title": "The Text Schema",
+      "default": "",
+      "examples": [
+        "End to end twitter workflow"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "truncated": {
+      "$id": "#/properties/truncated",
+      "type": "boolean",
+      "title": "The Truncated Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "entities": {
+      "$id": "#/properties/entities",
+      "type": "object",
+      "title": "The Entities Schema",
+      "required": [
+        "hashtags",
+        "symbols",
+        "user_mentions",
+        "urls"
+      ],
+      "properties": {
+        "hashtags": {
+          "$id": "#/properties/entities/properties/hashtags",
+          "type": "array",
+          "title": "The Hashtags Schema"
+        },
+        "symbols": {
+          "$id": "#/properties/entities/properties/symbols",
+          "type": "array",
+          "title": "The Symbols Schema"
+        },
+        "user_mentions": {
+          "$id": "#/properties/entities/properties/user_mentions",
+          "type": "array",
+          "title": "The User_mentions Schema"
+        },
+        "urls": {
+          "$id": "#/properties/entities/properties/urls",
+          "type": "array",
+          "title": "The Urls Schema"
+        }
+      }
+    },
+    "source": {
+      "$id": "#/properties/source",
+      "type": "string",
+      "title": "The Source Schema",
+      "default": "",
+      "examples": [
+        "<a href=\"http://www.letskodeit.com\" rel=\"nofollow\">RestAPI Automation for the futur</a>"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "in_reply_to_status_id": {
+      "$id": "#/properties/in_reply_to_status_id",
+      "type": "null",
+      "title": "The In_reply_to_status_id Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "in_reply_to_status_id_str": {
+      "$id": "#/properties/in_reply_to_status_id_str",
+      "type": "null",
+      "title": "The In_reply_to_status_id_str Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "in_reply_to_user_id": {
+      "$id": "#/properties/in_reply_to_user_id",
+      "type": "null",
+      "title": "The In_reply_to_user_id Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "in_reply_to_user_id_str": {
+      "$id": "#/properties/in_reply_to_user_id_str",
+      "type": "null",
+      "title": "The In_reply_to_user_id_str Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "in_reply_to_screen_name": {
+      "$id": "#/properties/in_reply_to_screen_name",
+      "type": "null",
+      "title": "The In_reply_to_screen_name Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "user": {
+      "$id": "#/properties/user",
+      "type": "object",
+      "title": "The User Schema",
+      "required": [
+        "id",
+        "id_str",
+        "name",
+        "screen_name",
+        "location",
+        "description",
+        "url",
+        "entities",
+        "protected",
+        "followers_count",
+        "friends_count",
+        "listed_count",
+        "created_at",
+        "favourites_count",
+        "utc_offset",
+        "time_zone",
+        "geo_enabled",
+        "verified",
+        "statuses_count",
+        "lang",
+        "contributors_enabled",
+        "is_translator",
+        "is_translation_enabled",
+        "profile_background_color",
+        "profile_background_image_url",
+        "profile_background_image_url_https",
+        "profile_background_tile",
+        "profile_image_url",
+        "profile_image_url_https",
+        "profile_link_color",
+        "profile_sidebar_border_color",
+        "profile_sidebar_fill_color",
+        "profile_text_color",
+        "profile_use_background_image",
+        "has_extended_profile",
+        "default_profile",
+        "default_profile_image",
+        "following",
+        "follow_request_sent",
+        "notifications",
+        "translator_type"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/user/properties/id",
+          "type": "integer",
+          "title": "The Id Schema",
+          "default": 0,
+          "examples": [
+            990436078078300200
+          ]
+        },
+        "id_str": {
+          "$id": "#/properties/user/properties/id_str",
+          "type": "string",
+          "title": "The Id_str Schema",
+          "default": "",
+          "examples": [
+            "990436078078300166"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "name": {
+          "$id": "#/properties/user/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "Mark Web"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "screen_name": {
+          "$id": "#/properties/user/properties/screen_name",
+          "type": "string",
+          "title": "The Screen_name Schema",
+          "default": "",
+          "examples": [
+            "sebstone8"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "location": {
+          "$id": "#/properties/user/properties/location",
+          "type": "string",
+          "title": "The Location Schema",
+          "default": "",
+          "examples": [
+            ""
+          ],
+          "pattern": "^(.*)$"
+        },
+        "description": {
+          "$id": "#/properties/user/properties/description",
+          "type": "string",
+          "title": "The Description Schema",
+          "default": "",
+          "examples": [
+            ""
+          ],
+          "pattern": "^(.*)$"
+        },
+        "url": {
+          "$id": "#/properties/user/properties/url",
+          "type": "null",
+          "title": "The Url Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "entities": {
+          "$id": "#/properties/user/properties/entities",
+          "type": "object",
+          "title": "The Entities Schema",
+          "required": [
+            "description"
+          ],
+          "properties": {
+            "description": {
+              "$id": "#/properties/user/properties/entities/properties/description",
+              "type": "object",
+              "title": "The Description Schema",
+              "required": [
+                "urls"
+              ],
+              "properties": {
+                "urls": {
+                  "$id": "#/properties/user/properties/entities/properties/description/properties/urls",
+                  "type": "array",
+                  "title": "The Urls Schema"
+                }
+              }
+            }
+          }
+        },
+        "protected": {
+          "$id": "#/properties/user/properties/protected",
+          "type": "boolean",
+          "title": "The Protected Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "followers_count": {
+          "$id": "#/properties/user/properties/followers_count",
+          "type": "integer",
+          "title": "The Followers_count Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "friends_count": {
+          "$id": "#/properties/user/properties/friends_count",
+          "type": "integer",
+          "title": "The Friends_count Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "listed_count": {
+          "$id": "#/properties/user/properties/listed_count",
+          "type": "integer",
+          "title": "The Listed_count Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "created_at": {
+          "$id": "#/properties/user/properties/created_at",
+          "type": "string",
+          "title": "The Created_at Schema",
+          "default": "",
+          "examples": [
+            "Sun Apr 29 03:42:17 +0000 2018"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "favourites_count": {
+          "$id": "#/properties/user/properties/favourites_count",
+          "type": "integer",
+          "title": "The Favourites_count Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "utc_offset": {
+          "$id": "#/properties/user/properties/utc_offset",
+          "type": "null",
+          "title": "The Utc_offset Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "time_zone": {
+          "$id": "#/properties/user/properties/time_zone",
+          "type": "null",
+          "title": "The Time_zone Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "geo_enabled": {
+          "$id": "#/properties/user/properties/geo_enabled",
+          "type": "boolean",
+          "title": "The Geo_enabled Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "verified": {
+          "$id": "#/properties/user/properties/verified",
+          "type": "boolean",
+          "title": "The Verified Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "statuses_count": {
+          "$id": "#/properties/user/properties/statuses_count",
+          "type": "integer",
+          "title": "The Statuses_count Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "lang": {
+          "$id": "#/properties/user/properties/lang",
+          "type": "string",
+          "title": "The Lang Schema",
+          "default": "",
+          "examples": [
+            "pl"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "contributors_enabled": {
+          "$id": "#/properties/user/properties/contributors_enabled",
+          "type": "boolean",
+          "title": "The Contributors_enabled Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "is_translator": {
+          "$id": "#/properties/user/properties/is_translator",
+          "type": "boolean",
+          "title": "The Is_translator Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "is_translation_enabled": {
+          "$id": "#/properties/user/properties/is_translation_enabled",
+          "type": "boolean",
+          "title": "The Is_translation_enabled Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "profile_background_color": {
+          "$id": "#/properties/user/properties/profile_background_color",
+          "type": "string",
+          "title": "The Profile_background_color Schema",
+          "default": "",
+          "examples": [
+            "F5F8FA"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_background_image_url": {
+          "$id": "#/properties/user/properties/profile_background_image_url",
+          "type": "null",
+          "title": "The Profile_background_image_url Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "profile_background_image_url_https": {
+          "$id": "#/properties/user/properties/profile_background_image_url_https",
+          "type": "null",
+          "title": "The Profile_background_image_url_https Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "profile_background_tile": {
+          "$id": "#/properties/user/properties/profile_background_tile",
+          "type": "boolean",
+          "title": "The Profile_background_tile Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "profile_image_url": {
+          "$id": "#/properties/user/properties/profile_image_url",
+          "type": "string",
+          "title": "The Profile_image_url Schema",
+          "default": "",
+          "examples": [
+            "http://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_image_url_https": {
+          "$id": "#/properties/user/properties/profile_image_url_https",
+          "type": "string",
+          "title": "The Profile_image_url_https Schema",
+          "default": "",
+          "examples": [
+            "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_link_color": {
+          "$id": "#/properties/user/properties/profile_link_color",
+          "type": "string",
+          "title": "The Profile_link_color Schema",
+          "default": "",
+          "examples": [
+            "1DA1F2"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_sidebar_border_color": {
+          "$id": "#/properties/user/properties/profile_sidebar_border_color",
+          "type": "string",
+          "title": "The Profile_sidebar_border_color Schema",
+          "default": "",
+          "examples": [
+            "C0DEED"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_sidebar_fill_color": {
+          "$id": "#/properties/user/properties/profile_sidebar_fill_color",
+          "type": "string",
+          "title": "The Profile_sidebar_fill_color Schema",
+          "default": "",
+          "examples": [
+            "DDEEF6"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_text_color": {
+          "$id": "#/properties/user/properties/profile_text_color",
+          "type": "string",
+          "title": "The Profile_text_color Schema",
+          "default": "",
+          "examples": [
+            "333333"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "profile_use_background_image": {
+          "$id": "#/properties/user/properties/profile_use_background_image",
+          "type": "boolean",
+          "title": "The Profile_use_background_image Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "has_extended_profile": {
+          "$id": "#/properties/user/properties/has_extended_profile",
+          "type": "boolean",
+          "title": "The Has_extended_profile Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "default_profile": {
+          "$id": "#/properties/user/properties/default_profile",
+          "type": "boolean",
+          "title": "The Default_profile Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "default_profile_image": {
+          "$id": "#/properties/user/properties/default_profile_image",
+          "type": "boolean",
+          "title": "The Default_profile_image Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "following": {
+          "$id": "#/properties/user/properties/following",
+          "type": "boolean",
+          "title": "The Following Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "follow_request_sent": {
+          "$id": "#/properties/user/properties/follow_request_sent",
+          "type": "boolean",
+          "title": "The Follow_request_sent Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "notifications": {
+          "$id": "#/properties/user/properties/notifications",
+          "type": "boolean",
+          "title": "The Notifications Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "translator_type": {
+          "$id": "#/properties/user/properties/translator_type",
+          "type": "string",
+          "title": "The Translator_type Schema",
+          "default": "",
+          "examples": [
+            "none"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "geo": {
+      "$id": "#/properties/geo",
+      "type": "null",
+      "title": "The Geo Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "coordinates": {
+      "$id": "#/properties/coordinates",
+      "type": "null",
+      "title": "The Coordinates Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "place": {
+      "$id": "#/properties/place",
+      "type": "null",
+      "title": "The Place Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "contributors": {
+      "$id": "#/properties/contributors",
+      "type": "null",
+      "title": "The Contributors Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "is_quote_status": {
+      "$id": "#/properties/is_quote_status",
+      "type": "boolean",
+      "title": "The Is_quote_status Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "retweet_count": {
+      "$id": "#/properties/retweet_count",
+      "type": "integer",
+      "title": "The Retweet_count Schema",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "favorite_count": {
+      "$id": "#/properties/favorite_count",
+      "type": "integer",
+      "title": "The Favorite_count Schema",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "favorited": {
+      "$id": "#/properties/favorited",
+      "type": "boolean",
+      "title": "The Favorited Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "retweeted": {
+      "$id": "#/properties/retweeted",
+      "type": "boolean",
+      "title": "The Retweeted Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "lang": {
+      "$id": "#/properties/lang",
+      "type": "string",
+      "title": "The Lang Schema",
+      "default": "",
+      "examples": [
+        "en"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

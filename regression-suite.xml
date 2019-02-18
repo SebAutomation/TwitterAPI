@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression Suite">
+    <test name="RestAssured Tests">
+        <classes>
+            <class name="automationframework.statuses.UserTimelineTest"></class>
+            <class name="automationframework.statuses.TwitterWorkflowTest"></class>
+        </classes>
+    </test>
+
+</suite>
