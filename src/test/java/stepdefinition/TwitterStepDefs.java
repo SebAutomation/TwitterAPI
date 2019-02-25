@@ -144,11 +144,12 @@ public class TwitterStepDefs {
 
     @And("^user deletes collection of already created tweets by tweet IDs$")
     public void userDeletesAlreadyCreatedTweets() {
-        /*for (String ids : scenarioContext.getListOfTweetIds()) {
+        for (String ids : scenarioContext.getListOfTweetIds()) {
             restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", ids);
-        }*/
+            System.out.println("User deleted : " + ids);
+        }
 
-        final List<Integer> responseList = new ArrayList<>();
+       /* final List<Integer> responseList = new ArrayList<>();
         for (String ids : scenarioContext.getListOfTweetIds()) {
             if (ids.startsWith("SIEMANKO")) {
                 Response response = restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", ids);
@@ -178,7 +179,7 @@ public class TwitterStepDefs {
                 .collect(Collectors.toList());
 
 
-
+*/
     }
 
 }
