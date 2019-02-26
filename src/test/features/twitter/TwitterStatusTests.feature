@@ -23,6 +23,10 @@ Feature: Twitter api tests - full framework
       | tweetMessage   |
       | I post tweet 1 |
       | I post tweet 2 |
+      | I post tweet 3 |
+      | I post tweet 4 |
+      | I post tweet 5 |
+      | I post tweet 6 |
 
   Scenario: User deletes tweets
     Given user is authenticated by Twitter API
