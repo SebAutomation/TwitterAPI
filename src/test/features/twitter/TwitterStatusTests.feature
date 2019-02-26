@@ -27,6 +27,8 @@ Feature: Twitter api tests - full framework
       | I post tweet 4 |
       | I post tweet 5 |
       | I post tweet 6 |
+      | I post tweet 7 |
+      | I post tweet 8 |
 
   Scenario: User deletes tweets
     Given user is authenticated by Twitter API
