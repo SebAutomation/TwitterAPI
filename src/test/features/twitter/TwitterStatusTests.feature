@@ -8,8 +8,8 @@ Feature: Twitter api tests - full framework
     And tweet id is saved
     When user gets the tweet by Id
     Then response contains elements with expected values
-      | name        | "Mark Web"                    |
-      | screen_name | "sebstone8"                   |
+      | name        | "Rest Automator"              |
+      | screen_name | "Rautomator"                  |
       | text        | "End to end twitter workflow" |
     And user deletes already created tweet
 
@@ -18,17 +18,21 @@ Feature: Twitter api tests - full framework
     And twitter baseURL and basePath is set for statuses
     When user sends a following tweet "<tweetMessage>" to the server
     Then user will receive status code 200
+    Then response contains elements with expected values
+      | name        | <name>              |
+      | text        | <text>              |
+      | screen_name | <twitterScreenName> |
 
     Examples:
-      | tweetMessage   |
-      | I post tweet 1 |
-      | I post tweet 2 |
-      | I post tweet 3 |
-      | I post tweet 4 |
-      | I post tweet 5 |
-      | I post tweet 6 |
-      | I post tweet 7 |
-      | I post tweet 8 |
+      | tweetMessage   | name             | text             | twitterScreenName |
+      | I post tweet 1 | "Rest Automator" | "I post tweet 1" | "Rautomator"      |
+      | I post tweet 2 | "Rest Automator" | "I post tweet 2" | "Rautomator"      |
+      | I post tweet 3 | "Rest Automator" | "I post tweet 3" | "Rautomator"      |
+      | I post tweet 4 | "Rest Automator" | "I post tweet 4" | "Rautomator"      |
+      | I post tweet 5 | "Rest Automator" | "I post tweet 5" | "Rautomator"      |
+      | I post tweet 6 | "Rest Automator" | "I post tweet 6" | "Rautomator"      |
+      | I post tweet 7 | "Rest Automator" | "I post tweet 7" | "Rautomator"      |
+      | I post tweet 8 | "Rest Automator" | "I post tweet 8" | "Rautomator"      |
 
   Scenario: User deletes tweets
     Given user is authenticated by Twitter API

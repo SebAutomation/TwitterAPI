@@ -14,23 +14,23 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertTrue;
 
 public class TwitterStepDefs {
 
     private RestUtilities restUtilities;
     private ScenarioContext scenarioContext;
+    private ObjectMapper MAPPER = new ObjectMapper();
 
-    public TwitterStepDefs(ScenarioContext scenarioContext) {
+    public TwitterStepDefs(ScenarioContext scenarioContext, RestUtilities restUtilities) {
         this.scenarioContext = scenarioContext;
-        this.restUtilities = new RestUtilities(scenarioContext);
+        this.restUtilities = restUtilities;
     }
 
     @Given("user is authenticated by Twitter API")
@@ -70,9 +70,7 @@ public class TwitterStepDefs {
 
     @Then("response contains elements with expected values")
     public void responseContainsElementsWithExpectedValues(Map<String, String> expectedElements) throws IOException {
-
-        System.out.println("Response : " + scenarioContext.getResponse().getBody().prettyPrint());
-        JsonNode jsonNode = new ObjectMapper().readTree(scenarioContext.getResponse().getBody().asString());
+        JsonNode jsonNode = MAPPER.readTree(scenarioContext.getResponse().getBody().asString());
         for (Map.Entry<String, String> element : expectedElements.entrySet()) {
             String currentValue = jsonNode.findValue(element.getKey()).toString();
             String expectedValue = element.getValue();
@@ -88,7 +86,7 @@ public class TwitterStepDefs {
 
     @And("response is a list of elements with expected values")
     public void responseIsAlistOfElementsWithExpectedValues(List<Map<String, String>> expectedElements) throws IOException {
-        JsonNode jsonNode = new ObjectMapper().readTree(scenarioContext.responseAsString());
+        JsonNode jsonNode = MAPPER.readTree(scenarioContext.responseAsString());
         assertThat("Request response is not a list.", jsonNode.isArray());
         assertThat("Expected: " + jsonNode.size() + " to be: " + expectedElements.size(), jsonNode.size(), equalTo(expectedElements.size()));
         for (int i = 0; i < expectedElements.size(); i++) {
@@ -109,7 +107,7 @@ public class TwitterStepDefs {
 
     @And("response contains element \"(.*)\" with value \"(.*)\"")
     public void responseContainsElementWithValue(String element, String expectedValue) throws IOException {
-        JsonNode jsonNode = new ObjectMapper().readTree(scenarioContext.responseAsString());
+        JsonNode jsonNode = MAPPER.readTree(scenarioContext.responseAsString());
         System.out.println("Pretty::: " + jsonNode.toString());
         String currentValue = jsonNode.get(element).toString();
         assertThat("Expected: " + currentValue + " to be: " + expectedValue, currentValue, equalTo(expectedValue));
@@ -117,7 +115,7 @@ public class TwitterStepDefs {
 
     @And("response contains element like \"(.*)\" in the response")
     public void responseContainsElement(String elementName) throws IOException {
-        JsonNode jsonNode = new ObjectMapper().readTree(scenarioContext.responseAsString());
+        JsonNode jsonNode = MAPPER.readTree(scenarioContext.responseAsString());
         assertThat(jsonNode.has(elementName), is(true));
     }
 
@@ -138,48 +136,29 @@ public class TwitterStepDefs {
     public void saveTweetIds() {
         JsonPath jsPath = new JsonPath(scenarioContext.getResponse().getBody().asString());
         scenarioContext.setListOfTweetIds(jsPath.getList("id_str"));
-        assertThat("List of tweet Ids is empty!", !scenarioContext.getListOfTweetIds().isEmpty());
+        assertTrue("List of tweet Ids is empty!", !scenarioContext.getListOfTweetIds().isEmpty());
 
     }
 
     @And("^user deletes collection of already created tweets by tweet IDs$")
     public void userDeletesAlreadyCreatedTweets() {
-        for (String ids : scenarioContext.getListOfTweetIds()) {
-            restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", ids);
-            System.out.println("User deleted : " + ids);
+        for (String id : scenarioContext.getListOfTweetIds()) {
+            restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", id);
+            System.out.println("User deleted : " + id);
         }
-
-       /* final List<Integer> responseList = new ArrayList<>();
-        for (String ids : scenarioContext.getListOfTweetIds()) {
-            if (ids.startsWith("SIEMANKO")) {
-                Response response = restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", ids);
-                responseList.add(response.getStatusCode());
-            }
-        }
-
-
-        scenarioContext.getListOfTweetIds()
-                .stream()
-                .filter(id -> id.startsWith("SIEMANKO"))
-                .map(id -> restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", id))
-                .map(response -> response.getStatusCode())
-                .collect(Collectors.toList());
 
     }
 
-    private List reciveResponseFromTwitterApi(){
-        return scenarioContext.getListOfTweetIds()
-                .stream()
-                .filter(id -> id.startsWith("SIEMANKO"))
-                .sorted()
-                .map(id -> {
-                   final Response response = restUtilities.makePostWithPathParam(EndPoints.STATUSES_TWEET_DESTROY, "id", id);
-                    return response.getStatusCode();
-                })
-                .collect(Collectors.toList());
-
-
-*/
+    @Then("in the response tweet number \"([^\"]*)\" contains following elements$")
+    public void fsdfdsresponseContainsElementsWithExpectedValues(int index, Map<String, String> expectedElements) throws IOException {
+        JsonNode jsonNode = MAPPER.readTree(scenarioContext.getResponse().getBody().asString());
+        JsonNode tweetIndex = jsonNode.findValue("text").get(index);
+        for (Map.Entry<String, String> element : expectedElements.entrySet()) {
+            String currentValue = tweetIndex.findValue(element.getKey()).toString();
+            String expectedValue = element.getValue();
+            assertThat(currentValue, notNullValue());
+            assertThat("Expected: " + currentValue + " to be: " + expectedValue, currentValue, equalTo(expectedValue));
+        }
     }
 
 }

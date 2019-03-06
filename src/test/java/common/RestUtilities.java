@@ -26,13 +26,14 @@ public class RestUtilities {
     }
 
     public RequestSpecification createRequestSpecification() {
-        //We add authorisation
+        //We add authorization
         AuthenticationScheme authScheme =
                 RestAssured.oauth(Auth.CONSUMER_KEY, Auth.CONSUMER_SECRET, Auth.ACCESS_TOKEN, Auth.ACCESS_SECRET);
         requestBuilder = new RequestSpecBuilder();
         requestBuilder.setAuth(authScheme);
-/*        requestBuilder.addHeader("Content-Type", "application/json");
-        requestBuilder.addHeader("Accept", "application/json");*/
+        scenarioContext.getDefaultHeaders().put("Content-Type", "application/json");
+        scenarioContext.getDefaultHeaders().put("Accept", "application/json");
+        requestBuilder.addHeaders(scenarioContext.getDefaultHeaders());
         return requestBuilder.build();
     }
 

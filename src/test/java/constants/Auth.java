@@ -2,8 +2,8 @@ package constants;
 
 public class Auth {
 
-    public static final String CONSUMER_KEY = "k5KFZvb1X22y4aG40KBW0uijd";
-    public static final String CONSUMER_SECRET = "4BbOxUoesk2ZKZCmFsvtiBviJgMXNCthmzqGBGV17ywbxOm68g";
-    public static final String ACCESS_TOKEN = "1091085513149292544-aSVuSVJr8XFIugcrnW6oFboHIV1QTy";
-    public static final String ACCESS_SECRET = "iM0d5RPsiZur2O67fnQCnVWtBKfbRa6D37RCZzzBIISJN";
+    public static final String CONSUMER_KEY = "OzWiKlIhcrA7URKatlk4kDeze";
+    public static final String CONSUMER_SECRET = "yqTUyFwwGAhtJldijzhfneYDSTjh4iSSuRwy58zfCmvNjFAxWm";
+    public static final String ACCESS_TOKEN = "1091085513149292544-O8F442LvYao5tLu7cULEZo5LIAUMGD";
+    public static final String ACCESS_SECRET = "1JDYRdy8hrwqnolHE9h5mrZWR78ylDnkvgVwrXrhXDOSx";
 }

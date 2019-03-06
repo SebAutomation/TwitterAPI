@@ -3,13 +3,21 @@ package common;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ScenarioContext {
 
     private Response response;
     private String tweetId;
     private List<String> listOfTweetIds;
+
+    public Map<String, String> getDefaultHeaders() {
+        return defaultHeaders;
+    }
+
+    private Map<String, String> defaultHeaders = new HashMap<>();
 
     public List<String> getListOfTweetIds() {
         return listOfTweetIds;
