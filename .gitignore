@@ -1,0 +1,10 @@
+*~
+target
+output
+.classpath
+.project
+.settings
+/.idea
+*.iml
+phantomjsdriver.log
+*.pem
