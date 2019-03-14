@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 //        tags = {"~@ignore"},
         plugin = {"json:target/report/cucumber.json"},
         snippets = SnippetType.CAMELCASE,
-        format = {"json:target/report/cucumber.json", "html:target/site/cucumber-pretty"})
+        format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"})
 
 public class TestRunner extends BaseRunner{
 

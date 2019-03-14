@@ -1,6 +1,0 @@
-setup\PropertiesReader.class
-common\ScenarioContext.class
-constants\Path.class
-common\RestUtilities.class
-constants\Auth.class
-constants\EndPoints.class
