@@ -2,9 +2,11 @@
 <suite name="Regression Suite">
     <test name="RestAssured Tests">
         <classes>
-            <class name="automationframework.statuses.UserTimelineTest"></class>
-            <class name="automationframework.statuses.TwitterWorkflowTest"></class>
+            <class name="runner.TestRunner">
+                <methods>
+                    <include name="runTests"/>
+                </methods>
+            </class>
         </classes>
     </test>
-
 </suite>

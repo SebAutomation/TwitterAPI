@@ -16,93 +16,118 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
+        <rest-assured.version>3.0.3</rest-assured.version>
+        <json-path.version>3.0.3</json-path.version>
+        <xml-path.version>3.0.3</xml-path.version>
+        <json-schema-validator.version>3.0.3</json-schema-validator.version>
+        <testng.version>6.14.3</testng.version>
+        <jcommander.version>1.72</jcommander.version>
+        <groovy-all.version>2.4.12</groovy-all.version>
+        <scribejava-apis.version>2.5.3</scribejava-apis.version>
+        <scribejava-core.version>2.5.3</scribejava-core.version>
+        <junit.version>4.11</junit.version>
+        <cucumber-java.version>1.2.5</cucumber-java.version>
+        <cucumber-testng.version>1.2.5</cucumber-testng.version>
+        <cucumber-picocontainer.version>1.2.5</cucumber-picocontainer.version>
+        <cucumber-junit.version>1.2.5</cucumber-junit.version>
+        <gherkin.version>2.12.2</gherkin.version>
+        <cucumber-jvm.version>1.2.2</cucumber-jvm.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+
+        <cucumber.reporting.version>3.15.0</cucumber.reporting.version>
+        <maven-surfire-plugin.version>2.22.1</maven-surfire-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>3.0.3</version>
+            <version>${rest-assured.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
-            <version>3.0.3</version>
+            <version>${json-path.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>xml-path</artifactId>
-            <version>3.0.3</version>
+            <version>${xml-path.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
-            <version>3.0.3</version>
+            <version>${json-schema-validator.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.11</version>
-            <scope>test</scope>
+            <version>${testng.version}</version>
         </dependency>
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
-            <version>1.72</version>
+            <version>${jcommander.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.4.12</version>
+            <version>${groovy-all.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.scribejava</groupId>
             <artifactId>scribejava-apis</artifactId>
-            <version>2.5.3</version>
+            <version>${scribejava-apis.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.scribejava</groupId>
             <artifactId>scribejava-core</artifactId>
-            <version>2.5.3</version>
+            <version>${scribejava-core.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>1.2.2</version>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
-            <version>1.2.2</version>
+            <version>${cucumber-picocontainer.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>gherkin</artifactId>
-            <version>2.12.2</version>
-            <scope>provided</scope>
+            <version>${cucumber-junit.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-jvm</artifactId>
-            <version>1.2.2</version>
+            <version>${cucumber-jvm.version}</version>
             <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>${gherkin.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
+            <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
     <profiles>
@@ -113,7 +138,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.18.1</version>
+                        <version>${maven-surfire-plugin.version}</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>regression-suite.xml</suiteXmlFile>
@@ -130,7 +155,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.18.1</version>
+                        <version>${maven-surfire-plugin.version}</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>usertimeline-suite.xml</suiteXmlFile>
@@ -142,5 +167,28 @@
         </profile>
     </profiles>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${cucumber.reporting.version}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>TwitterAPI</projectName>
+                            <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

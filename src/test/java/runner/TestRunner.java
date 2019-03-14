@@ -4,15 +4,24 @@ package runner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.CucumberFeatureWrapper;
 import org.junit.runner.RunWith;
+import org.testng.annotations.Test;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/features/twitter"},
-        glue = {"src/test/java/automationframework/stepdefinition"},
+        glue = {"stepdefinition"},
 //        tags = {"~@ignore"},
         plugin = {"json:target/report/cucumber.json"},
-        snippets = SnippetType.CAMELCASE)
-public class TestRunner {
+        snippets = SnippetType.CAMELCASE,
+        format = {"json:target/report/cucumber.json", "html:target/site/cucumber-pretty"})
 
+public class TestRunner extends BaseRunner{
+
+    @Test(groups = "cucumber", description = "Runs Cucumber All Feature", dataProvider = "features")
+    public void runTests(CucumberFeatureWrapper cucumberFeatureWrapper) {
+
+        testNGCucumberRunner.runCucumber(cucumberFeatureWrapper.getCucumberFeature());
+
+    }
 }
