@@ -12,12 +12,12 @@ public class ScenarioContext {
     private Response response;
     private String tweetId;
     private List<String> listOfTweetIds;
+    private RequestSpecification requestSpec;
+    private Map<String, String> defaultHeaders = new HashMap<>();
 
     public Map<String, String> getDefaultHeaders() {
         return defaultHeaders;
     }
-
-    private Map<String, String> defaultHeaders = new HashMap<>();
 
     public List<String> getListOfTweetIds() {
         return listOfTweetIds;
@@ -26,8 +26,6 @@ public class ScenarioContext {
     public void setListOfTweetIds(List<String> listOfTweetIds) {
         this.listOfTweetIds = listOfTweetIds;
     }
-
-    private RequestSpecification requestSpec;
 
     public RequestSpecification getRequestSpec() {
         return requestSpec;
@@ -53,7 +51,7 @@ public class ScenarioContext {
         this.response = response;
     }
 
-    public String responseAsString () {
-        return  response.getBody().asString();
+    public String responseAsString() {
+        return response.getBody().asString();
     }
 }

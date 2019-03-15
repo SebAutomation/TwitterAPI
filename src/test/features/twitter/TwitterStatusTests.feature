@@ -1,3 +1,4 @@
+@All
 Feature: Twitter api tests - full framework
 
   Scenario: Twitter end to end framework workflow

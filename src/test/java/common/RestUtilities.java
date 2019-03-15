@@ -37,7 +37,7 @@ public class RestUtilities {
         return requestBuilder.build();
     }
 
-    public Response makePostWithQueryParam(String path, String parameterName, String parameterValue){
+    public Response makePostWithQueryParam(String path, String parameterName, String parameterValue) {
         return given()
                 .log()
                 .all()
@@ -47,7 +47,7 @@ public class RestUtilities {
                 .post(path);
     }
 
-    public Response makePostWithPathParam(String path, String parameterName, String parameterValue){
+    public Response makePostWithPathParam(String path, String parameterName, String parameterValue) {
         return given()
                 .log()
                 .all()
@@ -57,7 +57,7 @@ public class RestUtilities {
                 .post(path);
     }
 
-    public Response makeGetWithQueryParam(String path, String parameterName, String parameterValue){
+    public Response makeGetWithQueryParam(String path, String parameterName, String parameterValue) {
         return given()
                 .log()
                 .all()
@@ -67,7 +67,7 @@ public class RestUtilities {
                 .get(path);
     }
 
-    public Response makeGet(String path){
+    public Response makeGet(String path) {
         return given()
                 .log()
                 .all()
@@ -83,13 +83,13 @@ public class RestUtilities {
         return responseSpec;
     }*/
 
-    public void validateAgainstJsonSchema(){
-        given().
-                contentType("application/json").
-                when().
-                get("http://myExample/users").
-                then().
-                assertThat().body(matchesJsonSchemaInClasspath("example_schema.json"));
+    public void validateAgainstJsonSchema() {
+        given()
+                .contentType("application/json")
+                .when()
+                .get("http://myExample/users")
+                .then()
+                .assertThat().body(matchesJsonSchemaInClasspath("example_schema.json"));
     }
 
     public static RequestSpecification createQueryParam(RequestSpecification rspec, String param, String value) {
@@ -104,21 +104,21 @@ public class RestUtilities {
         return rspec.pathParam(param, value);
     }
 
-    public static JsonPath getJsonPath(Response res){
+    public static JsonPath getJsonPath(Response res) {
         String jsPath = res.asString();
         return new JsonPath(jsPath);
     }
 
-    public static XmlPath getXmlPath(Response res){
+    public static XmlPath getXmlPath(Response res) {
         String xmlPath = res.asString();
         return new XmlPath(xmlPath);
     }
 
-    public static void resetBasePath(){
+    public static void resetBasePath() {
         RestAssured.basePath = null;
     }
 
-    public static void setContentType(ContentType type){
+    public static void setContentType(ContentType type) {
         given().contentType(type);
     }
 }

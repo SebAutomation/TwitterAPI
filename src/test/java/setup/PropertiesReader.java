@@ -40,10 +40,9 @@ public class PropertiesReader {
                 propertiesMap = values;
             }
         } catch (IOException e) {
-            LOGGER.error("Error while reading properties file." + e);
+            LOGGER.error("Error while reading properties file. {}", e);
             throw e;
         }
         return propertiesMap;
     }
-
 }
