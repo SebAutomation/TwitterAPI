@@ -1,22 +1,17 @@
 package stepdefinition;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.*;
 import common.RestUtilities;
 import common.ScenarioContext;
 import constants.EndPoints;
-import constants.Path;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import static constants.Path.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -40,8 +35,8 @@ public class TwitterStepDefs {
 
     @And("twitter baseURL and basePath is set for statuses")
     public void endpointSetupForTwitterStatuses() {
-        scenarioContext.getRequestSpec().baseUri(Path.BASE_URI);
-        scenarioContext.getRequestSpec().basePath(Path.STATUSES);
+        restUtilities.setBaseUri(BASE_URI);
+        restUtilities.setBasePath(STATUSES);
     }
 
     //  POST request
