@@ -1,7 +1,6 @@
 package common;
 
 import constants.Auth;
-import constants.EndPoints;
 import io.restassured.RestAssured;
 import io.restassured.authentication.AuthenticationScheme;
 import io.restassured.builder.RequestSpecBuilder;
@@ -35,6 +34,14 @@ public class RestUtilities {
         scenarioContext.getDefaultHeaders().put("Accept", "application/json");
         requestBuilder.addHeaders(scenarioContext.getDefaultHeaders());
         return requestBuilder.build();
+    }
+
+    public RequestSpecification setBaseUri(String baseUri) {
+        return scenarioContext.getRequestSpec().baseUri(baseUri);
+    }
+
+    public RequestSpecification setBasePath(String basePath) {
+        return scenarioContext.getRequestSpec().basePath(basePath);
     }
 
     public Response makePostWithQueryParam(String path, String parameterName, String parameterValue) {
